@@ -4,10 +4,10 @@ import { Header } from "./components/Header/Header";
 import { useTelegram } from "./hooks/UseTelegram";
 
 function App() {
-  const { tg, onToggleButton } = useTelegram;
+  const { tg, onToggleButton } = useTelegram();
   React.useEffect(() => {
     tg.ready();
-  }, []);
+  }, [tg]);
 
   return (
     <div className="App">
