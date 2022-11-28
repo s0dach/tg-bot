@@ -14,6 +14,7 @@ export const Form = () => {
       input3,
     };
     tg.sendData(JSON.stringify(data));
+    // eslint-disable-next-line
   }, [input1, input2, input3]);
 
   React.useEffect(() => {
@@ -21,12 +22,14 @@ export const Form = () => {
     return () => {
       tg.offEvent("MainButtonClicker", onSendData);
     };
+    // eslint-disable-next-line
   }, [onSendData]);
 
   React.useEffect(() => {
     tg.MainButton.setParams({
       text: "Отправить",
     });
+    // eslint-disable-next-line
   }, []);
 
   React.useEffect(() => {
