@@ -14,20 +14,20 @@ export const Form = () => {
       input3,
     };
     tg.sendData(JSON.stringify(data));
-  }, [input1, input2, input3, tg]);
+  }, [input1, input2, input3]);
 
   React.useEffect(() => {
     tg.onEvent("MainButtonClicker", onSendData);
     return () => {
       tg.offEvent("MainButtonClicker", onSendData);
     };
-  }, [onSendData, tg]);
+  }, [onSendData]);
 
   React.useEffect(() => {
     tg.MainButton.setParams({
       text: "Отправить",
     });
-  }, [tg.MainButton]);
+  }, []);
 
   React.useEffect(() => {
     if (!input1) {
