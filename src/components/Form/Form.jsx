@@ -7,6 +7,22 @@ export const Form = () => {
   const [input3, setInput3] = React.useState("");
   const { tg } = useTelegram();
 
+  const onSendData = React.useCallback(() => {
+    const data = {
+      input1,
+      input2,
+      input3,
+    };
+    tg.sendData(JSON.stringify(data));
+  }, [input1, input2, input3, tg]);
+
+  React.useEffect(() => {
+    tg.onEvent("mainbuttonclick", onSendData);
+    return () => {
+      tg.offEvent("mainbuttonclick", onSendData);
+    };
+  }, [onSendData, tg]);
+
   React.useEffect(() => {
     tg.MainButton.setParams(
       {
