@@ -18,9 +18,9 @@ export const Form = () => {
   }, [input1, input2, input3]);
 
   React.useEffect(() => {
-    tg.onEvent("MainButtonClicker", onSendData);
+    tg.onEvent("mainButtonClicked", onSendData);
     return () => {
-      tg.offEvent("MainButtonClicker", onSendData);
+      tg.offEvent("mainButtonClicked", onSendData);
     };
     // eslint-disable-next-line
   }, [onSendData]);
